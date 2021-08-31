@@ -12,10 +12,7 @@ function LunchCheckController($scope) {
   $scope.message = "";
 
   $scope.displayMessage = function() {
-    console.log("FIXME0 In display message, dishes = " + $scope.dishes)
-
     if ($scope.dishes === "") {
-      console.log("FIXME1 In display message, dishes = " + $scope.dishes)
       $scope.message = "Please enter data first";
       return;
     }
