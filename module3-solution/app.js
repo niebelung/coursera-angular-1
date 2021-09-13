@@ -57,8 +57,8 @@
 
     }
     
-    MenuSearchService.$inject = ['$http', 'ApiBasePath'];
-    function MenuSearchService($http, ApiBasePath) {
+    MenuSearchService.$inject = ['$http', 'ApiBasePath', '$filter'];
+    function MenuSearchService($http, ApiBasePath, $filter) {
       var searcher = this;
 
       searcher.getMatchedMenuItems = function (searchTerm) {
@@ -69,7 +69,8 @@
             var items = [];
             for (let i = 0; i < response.data.menu_items.length; i++) {
               var item = response.data.menu_items[i];  
-              if (item.description.indexOf(searchTerm) !== -1) {
+              if ($filter('lowercase')(item.description).indexOf(
+                  $filter('lowercase')(searchTerm)) !== -1) {
                 items.push(item);
               }
             }
