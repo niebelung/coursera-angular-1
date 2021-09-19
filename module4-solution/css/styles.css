@@ -1,0 +1,10 @@
+.category-short-name, .category-name {
+  color:black;
+  font-weight: bold;
+}
+
+.category-special-instructions {
+  color:black;
+  font-style: italic;
+}
+
