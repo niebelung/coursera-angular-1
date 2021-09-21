@@ -1,14 +1,15 @@
-<div class="menu-list">
-    <!-- <li ng-repeat="item in categoriesList.items"
-        ui-sref="mainList.itemDetail({itemId: $index})"
-        > -->
-    <div class="category-list-row" 
-         ng-repeat="item in $ctrl.items"
+<div class="categories-list">
+    <div class="row" 
+         ng-repeat="item in $ctrl.items track by $index" 
          ui-sref="itemList({categoryName: item.short_name})">
-        <span class="category-short-name"> {{ item.short_name }}</span> -
-        <span class="category-name"> {{ item.name }}</span> <br>
-        <span class="category-special-instructions"> {{ item.special_instructions }}</span>
-      
+        <div class="col-xs-12">
+            <div class="card border-secondary m-3 bg-light">
+                <div class="card-body">
+                    <h4 class="card-title"> {{ item.short_name }} </h4>
+                    <h5 class="card-subtitle"> {{ item.name }} </h5>
+                    <p class="card-text category-special-instructions"> {{ item.special_instructions }}</p>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-  

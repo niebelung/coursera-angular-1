@@ -1,22 +1,10 @@
-.category-short-name, .category-name, .menu-item-short-name, .menu-item-name, .menu-item-price {
-  color:black;
-  font-weight: bold;
-}
-
 .category-special-instructions, .menu-item-description {
   color:black;
   font-style: italic;
 }
 
-div.menu-list {
-  border: solid black 2px;
-}
 
-div.category-list-row {
-  border-bottom: solid black 1px;
+div.categories-list > div.card {
   cursor: pointer;
-}
-div.item-list-row {
-  border-bottom: solid black 1px;
 }
 
