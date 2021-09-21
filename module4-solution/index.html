@@ -2,6 +2,7 @@
 <html ng-app='MenuApp'>
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="css/styles.css">
     <title>Menu Application</title>
   </head>
   <body>
@@ -20,10 +21,12 @@
     <!-- Routes -->
     <script src="src/routes.js"></script>
 
-    <!-- TODO import js stuff-->
+    <!-- Components, services and controllers -->
+    <script src="src/menu/categories.controller.js"></script>
+    <script src="src/menu/items.controller.js"></script>
+    <script src="src/menu/menudata.service.js"></script>
     <script src="src/menu/categories.component.js"></script>
     <script src="src/menu/items.component.js"></script>
-    <script src="src/menu/menudata.service.js"></script>
     
   </body>
 </html>

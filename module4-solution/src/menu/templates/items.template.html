@@ -1,0 +1,17 @@
+<div class="menu-list">
+    <div class="item-list-row" ng-repeat="item in $ctrl.items">
+        <div>
+            <span class="menu-item-short-name"> {{ item.short_name }}</span> -
+            <span class="menu-item-name"> {{ item.name }}</span> 
+        </div>
+        <div>
+            <span class="menu-item-description"> {{ item.description }}</span>
+        </div>
+        <div ng-if="item.price_small && item.small_portion_name">
+            <span class="menu-item-price"> ${{ item.price_small }}</span> for <span class="menu-item-price"> {{ item.small_portion_name }}</span>
+        </div>
+        <div ng-if="item.price_large && item.large_portion_name">
+            <span class="menu-item-price"> ${{ item.price_large }}</span> for <span class="menu-item-price"> {{ item.large_portion_name }}</span>
+        </div>
+    </div>
+</div>
