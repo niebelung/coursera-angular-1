@@ -1,16 +1,16 @@
 <div class="menu-list">
-    <div class="row" ng-repeat="item in $ctrl.items track by $index" ng-if="$index % 4 == 0">
-        <div class="col-md-3 col-sm-6 col-xs-6" ng-repeat="i in [$index, $index + 1, $index + 2, $index + 3]">
+    <div class="row">
+        <div class="col-md-4 col-sm-6 col-xs-12" ng-repeat="item in $ctrl.items">
             <div class="card border-secondary m-3 bg-light">
                 <div class="card-body">
-                    <h4 class="card-title"> {{ $ctrl.items[i].short_name }} </h4>
-                    <h5 class="card-title"> {{ $ctrl.items[i].name }}</h4>
-                    <p class="card-text menu-item-description"> {{ $ctrl.items[i].description }}</p>
-                    <p class="card-text" ng-show="item.price_small && item.small_portion_name">
-                        ${{ $ctrl.items[i].price_small }} for {{ $ctrl.items[i].small_portion_name }}
+                    <h4 class="card-title"> {{ item.short_name }} </h4>
+                    <h5 class="card-title"> {{ item.name }}</h4>
+                    <p class="card-text menu-item-description"> {{ item.description }}</p>
+                    <p class="card-text" ng-show="item.price_small !== null && item.small_portion_name !== null">
+                        ${{ item.price_small }} for {{ item.small_portion_name }}
                     </p>
-                    <p class="card-text" ng-show="item.price_large && item.large_portion_name">
-                        ${{ $ctrl.items[i].price_large }} for {{ $ctrl.items[i].large_portion_name }}
+                    <p class="card-text" ng-show="item.price_large !== null && item.large_portion_name !== null">
+                        ${{ item.price_large }} for {{ item.large_portion_name }}
                     </p>
                 </div>
             </div>
