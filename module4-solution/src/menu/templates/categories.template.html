@@ -2,7 +2,7 @@
     <div class="row" 
          ng-repeat="item in $ctrl.items track by $index" 
          ui-sref="itemList({categoryName: item.short_name})">
-        <div class="col-xs-12">
+        <div class="col-md-12">
             <div class="card border-secondary m-3 bg-light">
                 <div class="card-body">
                     <h4 class="card-title"> {{ item.short_name }} </h4>
