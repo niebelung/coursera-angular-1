@@ -1,0 +1,14 @@
+<div class="container">
+    <h1>My Info</h1>
+    <div ng-if="!myInfoCtrl.isSet">
+        <span>Not Signed Up Yet. </span>
+        <span> <a href ui-sref="public.signup"> Sign up Now!</a></span>
+    </div>
+    <div ng-if="myInfoCtrl.isSet">
+        First name: {{ myInfoCtrl.myInfo.firstName }} <br>
+        Last name: {{ myInfoCtrl.myInfo.lastName }} <br>
+        email: {{ myInfoCtrl.myInfo.email }} <br>
+        phone: {{ myInfoCtrl.myInfo.phone }} <br>
+        Favorite dish: {{ myInfoCtrl.myInfo.favoriteDish }}
+    </div>
+</div>
