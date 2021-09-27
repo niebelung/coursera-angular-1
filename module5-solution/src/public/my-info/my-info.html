@@ -9,6 +9,7 @@
         Last name: {{ myInfoCtrl.myInfo.lastName }} <br>
         email: {{ myInfoCtrl.myInfo.email }} <br>
         phone: {{ myInfoCtrl.myInfo.phone }} <br>
-        Favorite dish: {{ myInfoCtrl.myInfo.favoriteDish }}
+        Favorite dish:
     </div>
+    <menu-item menu-item="myInfoCtrl.menuItem" ng-if="myInfoCtrl.isSet"></menu-item>
 </div>

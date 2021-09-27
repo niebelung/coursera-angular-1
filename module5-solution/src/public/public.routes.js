@@ -53,6 +53,14 @@ function routeConfig ($stateProvider) {
         myInfo: ['MyInfoService', function (MyInfoService) {
           return MyInfoService.getInfo();
         }]
+        ,
+        menuItem: ['MenuService', 'MyInfoService', function (MenuService, MyInfoService) {
+          if (!MyInfoService.isSet()) {
+            return {};
+          }
+          return MenuService.getMenuItem(MyInfoService.getInfo().favoriteDish);
+        }]
+
       }
     })
     .state('public.signup',{
