@@ -4,67 +4,106 @@
     <fieldset>
     <legend>Sign Up</legend>
     <form name='signUpCtrl.regForm' novalidate>
-      <input type="text" name="firstName" placeholder="Enter first name"
-        ng-model="signUpCtrl.info.firstName"
-        required>
-        <span ng-if="signUpCtrl.regForm.firstName.$valid" class="glyphicon glyphicon-ok"></span>
-        <span
-          ng-if="signUpCtrl.regForm.firstName.$error.required && signUpCtrl.regForm.firstName.$dirty">
-          Please enter first name
-        </span>
-      <br>
-
-      <input type="text" name="lastName" placeholder="Enter last name"
-        ng-model="signUpCtrl.info.lastName"
-        required>
-        <span ng-if="signUpCtrl.regForm.lastName.$valid" class="glyphicon glyphicon-ok"></span>
-        <span
-          ng-if="signUpCtrl.regForm.lastName.$error.required && signUpCtrl.regForm.lastName.$dirty">
-          Please enter last name
-        </span>
-      <br>
-
-      <input type="email" name="email" placeholder="Email"
-        ng-model="signUpCtrl.info.email"
-        required>
-        <span ng-if="signUpCtrl.regForm.email.$valid" class="glyphicon glyphicon-ok"></span>
-        <span ng-if="signUpCtrl.regForm.email.$invalid && signUpCtrl.regForm.email.$dirty">
-          Must be a valid email address: handle@domain format
-        </span>
-      <br>
-
-      <input type="text" name="phone" placeholder="Phone ###-###-####"
-        ng-model="signUpCtrl.info.phone"
-        pattern="(\d{3})-(\d{3})-(\d{4})"
-        required>
-        <span ng-if="signUpCtrl.regForm.phone.$valid" class="glyphicon glyphicon-ok"></span>
-        <span ng-if="signUpCtrl.regForm.phone.$invalid && signUpCtrl.regForm.phone.$dirty">
-          Phone must be in the format ###-###-####.
-        </span>
-      <br>
-
-      <input type="text" name="favoriteDish" placeholder="Favorite dish short name"
-        ng-model="signUpCtrl.info.favoriteDish"
-        ng-keyup="signUpCtrl.info.favoriteDish = (signUpCtrl.info.favoriteDish | uppercase);signUpCtrl.validateFavoriteDishInput();"
-        pattern="([a-zA-Z]{1,2})(\d{1,2})"
-        required>
-        <span ng-if="signUpCtrl.regForm.favoriteDish.$valid" class="glyphicon glyphicon-ok"></span>
-        <span ng-if="signUpCtrl.regForm.favoriteDish.$error.pattern">
-          Must be a short name: AB12, A12, C5 etc.
-        </span>
-        <span ng-if="signUpCtrl.regForm.favoriteDish.$error.isOnMenu && !signUpCtrl.regForm.favoriteDish.$error.pattern && signUpCtrl.regForm.favoriteDish.$dirty">
-          No such menu number exists
-        </span>
-      <br>
-
-      <button
-        ng-disabled="signUpCtrl.regForm.$invalid"
-        ng-click="signUpCtrl.submit()">Submit
-      </button>
-
-      <div style="margin-top: 10px;" ng-if="signUpCtrl.saved">
-        Your information has been saved
+      <div class="form-group row">
+        <label for="firstNameInput" class="col-sm-2" >First name</label>
+        <div class="col-sm-4">
+          <input id="firstNameInput" type="text" name="firstName" class="form-control" placeholder="Enter first name"
+          ng-model="signUpCtrl.info.firstName"
+          pattern="([a-zA-z]+)"
+          required>
+        </div>
+        <div class="col-sm-6">
+          <span class="text-danger" ng-if="signUpCtrl.regForm.firstName.$error.required && signUpCtrl.regForm.firstName.$dirty">
+            Please enter first name
+          </span>
+          <span class="glyphicon glyphicon-ok text-success" ng-if="signUpCtrl.regForm.firstName.$valid"></span>
+        </div>
       </div>
+
+      <div class="form-group row">
+        <label for="lastNameInput" class="col-sm-2" >Last name</label>
+        <div class="col-sm-4">
+          <input id="lastNameInput" type="text" name="lastName" class="form-control" placeholder="Enter last name"
+          ng-model="signUpCtrl.info.lastName"
+          pattern="([a-zA-z]+)"
+          required>
+        </div>
+        <div class="col-sm-6">
+          <span class="text-danger" ng-if="signUpCtrl.regForm.lastName.$error.required && signUpCtrl.regForm.lastName.$dirty">
+            Please enter last name
+          </span>
+          <span class="glyphicon glyphicon-ok text-success" ng-if="signUpCtrl.regForm.lastName.$valid"></span>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="emailInput" class="col-sm-2" >e-mail</label>
+        <div class="col-sm-4">
+          <input id="emailInput" type="email" name="email" class="form-control" placeholder="Email"
+            ng-model="signUpCtrl.info.email"
+            required>
+          </div>
+        <div class="col-sm-6">
+          <span class="text-danger" ng-if="signUpCtrl.regForm.email.$invalid && signUpCtrl.regForm.email.$dirty">
+            Must be a valid email address: handle@domain format
+          </span>
+          <span ng-if="signUpCtrl.regForm.email.$valid" class="glyphicon glyphicon-ok text-success"></span>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="phoneInput" class="col-sm-2" >Phone</label>
+        <div class="col-sm-4">
+          <input id="phoneInput" type="text" name="phone" class="form-control" placeholder="Phone ###-###-####"
+            ng-model="signUpCtrl.info.phone"
+            pattern="(\d{3})-(\d{3})-(\d{4})"
+            required>
+        </div>
+        <div class="col-sm-6">
+          <span class="text-danger" ng-if="signUpCtrl.regForm.phone.$invalid && signUpCtrl.regForm.phone.$dirty">
+            Phone must be in the format ###-###-####.
+          </span>
+          <span ng-if="signUpCtrl.regForm.phone.$valid" class="glyphicon glyphicon-ok text-success"></span>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="dishInput" class="col-sm-2" >Favorite dish</label>
+        <div class="col-sm-4">
+          <input id="dishInput" type="text" name="favoriteDish" class="form-control" placeholder="Favorite dish short name"
+            ng-model="signUpCtrl.info.favoriteDish"
+            ng-keyup="signUpCtrl.info.favoriteDish = (signUpCtrl.info.favoriteDish | uppercase);signUpCtrl.validateFavoriteDishInput();"
+            pattern="([a-zA-Z]{1,2})(\d{1,2})"
+            required>
+        </div>
+        <div class="col-sm-6">
+          <span class="text-danger" ng-if="signUpCtrl.regForm.favoriteDish.$error.pattern">
+            Must be a short name: AB12, A12, C5 etc.
+          </span>
+          <span class="text-danger" ng-if="signUpCtrl.regForm.favoriteDish.$error.isOnMenu && !signUpCtrl.regForm.favoriteDish.$error.pattern && signUpCtrl.regForm.favoriteDish.$dirty">
+            No such menu number exists
+          </span>
+          <span ng-if="signUpCtrl.regForm.favoriteDish.$valid" class="glyphicon glyphicon-ok text-success"></span>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-sm-6">
+          <button class="btn btn-primary pull-right"
+            ng-disabled="signUpCtrl.regForm.$invalid"
+            ng-click="signUpCtrl.submit()">Submit
+          </button>
+        </div>
+        <div class="col-sm-6"></div>
+      </div>
+
+      <div class="form-group" ng-if="signUpCtrl.saved">
+        <div style="margin-top: 10px;">
+          Your information has been saved
+        </div>
+        <div class="col-sm-6"></div>
+      </div>
+
     </form>
   </fieldset>
 </div>
