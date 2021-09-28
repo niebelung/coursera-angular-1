@@ -4,8 +4,8 @@
     angular.module('public')
     .controller('SignUpController', SignUpController);
     
-    SignUpController.$inject = ['MyInfoService', 'MenuService'];
-    function SignUpController(MyInfoService, MenuService) {
+    SignUpController.$inject = ['MyInfoService', 'MenuService', '$filter'];
+    function SignUpController(MyInfoService, MenuService, $filter) {
       var signUpCtrl = this;
 
       signUpCtrl.info = {
@@ -29,6 +29,10 @@
       };
 
       signUpCtrl.validateFavoriteDishInput = function () {
+
+        if (signUpCtrl.regForm.favoriteDish.$error.pattern) {
+          return;
+        }
 
         MenuService.getMenuItem(signUpCtrl.info.favoriteDish).then(function(response){
             signUpCtrl.regForm.favoriteDish.$setValidity('isOnMenu', true);
